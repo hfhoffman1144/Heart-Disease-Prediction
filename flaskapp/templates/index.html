@@ -33,12 +33,14 @@
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <link href="../static/css/nucleo-svg.css" rel="stylesheet" />
+
     <!-- CSS Files -->
     <link id="pagestyle" href="../static/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
 
-    <!-- Select2 CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <!-- Jquery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+
 </head>
 
 <body class="g-sidenav-show  bg-gray-100">
@@ -46,18 +48,12 @@
         <div class="sidenav-header">
             <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
             <a class="navbar-brand m-0" href="https://demos.creative-tim.com/soft-ui-dashboard/pages/dashboard.html" target="_blank">
-                <span class="ms-1 font-weight-bold"><h6>Patient Information</h6></span>
+                <span class="ms-1 font-weight-bold"><h6>Instructions</h6></span>
             </a>
         </div>
         <hr class="horizontal dark mt-0">
         <div class="collapse navbar-collapse  w-auto  max-height-vh-100 h-100" id="sidenav-collapse-main">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <h5>fs</h5>
-                    <select class="form-control" name="apiUse" id="apiUse" style="width:100%"></select>
-                </li>
-
-            </ul>
+            <p>Enter biomarkers to analyze heart failure probability.</p>
         </div>
 
     </aside>
@@ -80,14 +76,14 @@
                                 <div class="row">
                                     <div class="col-lg-4">
                                         <p style="color: white;">Sex</p>
-                                        <select name="sex" id="sex" style="width:100%;">
+                                        <select class='form-control' name="sex" id="sex" style="width:100%;">
                                             <option value="M">Male</option>
                                             <option value="F">Female</option>
                                           </select>
                                     </div>
                                     <div class="col-lg-4">
                                         <p style="color: white;">Resting ECG</p>
-                                        <select name="restingECG" id="restingECG" style="width:100%;">
+                                        <select class='form-control' name="restingECG" id="restingECG" style="width:100%;">
                                             <option value="Normal">Normal</option>
                                             <option value="ST">ST</option>
                                             <option value="LVH">LVH</option>
@@ -95,12 +91,65 @@
                                     </div>
                                     <div class="col-lg-4">
                                         <p style="color: white;">Chest Pain Type</p>
-                                        <select name="chestPainType" id="chestPainType" style="width:100%;">
+                                        <select class='form-control' name="chestPainType" id="chestPainType" style="width:100%;">
                                             <option value="ATA">ATA</option>
                                             <option value="NAP">NAP</option>
                                             <option value="ASY">ASY</option>
                                             <option value="TA">TA</option>
                                           </select>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <p style="color: white;">Exercise Angina</p>
+                                        <select class='form-control' name="exerciseAngina" id="exerciseAngina" style="width:100%;">
+                                            <option value="Y">Yes</option>
+                                            <option value="N">No</option>
+                                          </select>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <p style="color: white;">ST Slope</p>
+                                        <select class='form-control' name="stSlope" id="stSlope" style="width:100%;">
+                                            <option value="Up">Up</option>
+                                            <option value="Down">Down</option>
+                                            <option value="Flat">Flat</option>
+                                          </select>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <p style="color: white;">Age</p>
+                                        <input class='form-control' type="number" id="age" name="age" value="40" min="0" max="120" style="width:100%;">
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <p style="color: white;">Resting Blood Pressure</p>
+                                        <input class='form-control' type="number" id="restingBP" name="restingBP" value="120" min="0" max="300" style="width:100%;">
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <p style="color: white;">Cholesterol</p>
+                                        <input class='form-control' type="number" id="cholesterol" name="cholesterol" value="200" min="0" max="700" style="width:100%;">
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <p style="color: white;">Fasting Blood Sugar</p>
+                                        <input class='form-control' type="number" id="fastingBS" name="fastingBS" value="1" min="0" max="1" style="width:100%;">
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <p style="color: white;">Max Heart Rate</p>
+                                        <input class='form-control' type="number" id="maxHR" name="maxHR" value="120" min="50" max="300" style="width:100%;">
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <p style="color: white;">Oldpeak</p>
+                                        <input class='form-control' type="number" id="oldpeak" name="oldpeak" value="0.89" min="-3" max="7" style="width:100%;">
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <p style="color: white;">Calculate Heart Failure Probability</p>
+                                        <button id='makePred' class="btn btn-outline-primary btn-md mb-0" style="width:100%; background-color: white;">Run model</button>
+
                                     </div>
                                 </div>
 
@@ -121,171 +170,47 @@
     <script src="../static/js/plugins/smooth-scrollbar.min.js"></script>
     <script src="../static/js/plugins/chartjs.min.js"></script>
     <script>
-        var ctx = document.getElementById("chart-bars").getContext("2d");
+        $(document).ready(function(e) {
 
-        new Chart(ctx, {
-            type: "bar",
-            data: {
-                labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-                datasets: [{
-                    label: "Sales",
-                    tension: 0.4,
-                    borderWidth: 0,
-                    borderRadius: 4,
-                    borderSkipped: false,
-                    backgroundColor: "#fff",
-                    data: [450, 200, 100, 220, 500, 100, 400, 230, 500],
-                    maxBarThickness: 6
-                }, ],
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: false,
+            $('#makePred').click(function() {
+
+                var sex = $('#sex').val();
+                var restingECG = $('#restingECG').val();
+                var cpt = $('#chestPainType').val();
+                var exerciseAngina = $('#exerciseAngina').val();
+                var sts = $('#stSlope').val();
+                var age = $('#age').val();
+                var bp = $('#restingBP').val();
+                var chol = $('#cholesterol').val();
+                var bs = $('#fastingBS').val();
+                var maxHR = $('#maxHR').val();
+                var oldpeak = $('#oldpeak').val();
+
+                var inputData = {
+                    'sex': sex,
+                    'restingECG': restingECG,
+                    'cpt': cpt,
+                    'exerciseAngina': exerciseAngina,
+                    'sts': sts,
+                    'age': age,
+                    'bp': bp,
+                    'chol': chol,
+                    'bs': bs,
+                    'maxHR': maxHR,
+                    'oldpeak': oldpeak
+                };
+
+                $.ajax({
+                    url: 'main/api/make_prediction',
+                    data: inputData,
+                    type: 'post',
+                    success: function(response) {
+                        console.log('gang');
                     }
-                },
-                interaction: {
-                    intersect: false,
-                    mode: 'index',
-                },
-                scales: {
-                    y: {
-                        grid: {
-                            drawBorder: false,
-                            display: false,
-                            drawOnChartArea: false,
-                            drawTicks: false,
-                        },
-                        ticks: {
-                            suggestedMin: 0,
-                            suggestedMax: 500,
-                            beginAtZero: true,
-                            padding: 15,
-                            font: {
-                                size: 14,
-                                family: "Open Sans",
-                                style: 'normal',
-                                lineHeight: 2
-                            },
-                            color: "#fff"
-                        },
-                    },
-                    x: {
-                        grid: {
-                            drawBorder: false,
-                            display: false,
-                            drawOnChartArea: false,
-                            drawTicks: false
-                        },
-                        ticks: {
-                            display: false
-                        },
-                    },
-                },
-            },
-        });
+                })
+            });
 
 
-        var ctx2 = document.getElementById("chart-line").getContext("2d");
-
-        var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
-
-        gradientStroke1.addColorStop(1, 'rgba(203,12,159,0.2)');
-        gradientStroke1.addColorStop(0.2, 'rgba(72,72,176,0.0)');
-        gradientStroke1.addColorStop(0, 'rgba(203,12,159,0)'); //purple colors
-
-        var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
-
-        gradientStroke2.addColorStop(1, 'rgba(20,23,39,0.2)');
-        gradientStroke2.addColorStop(0.2, 'rgba(72,72,176,0.0)');
-        gradientStroke2.addColorStop(0, 'rgba(20,23,39,0)'); //purple colors
-
-        new Chart(ctx2, {
-            type: "line",
-            data: {
-                labels: [1, 2, 3, 4, 5, 6, 7, 8, 9],
-                datasets: [{
-                    label: "Mobile apps",
-                    tension: 0.4,
-                    borderWidth: 0,
-                    pointRadius: 0,
-                    borderColor: "#cb0c9f",
-                    borderWidth: 3,
-                    backgroundColor: gradientStroke1,
-                    fill: true,
-                    data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
-                    maxBarThickness: 6
-
-                }, {
-                    label: "Websites",
-                    tension: 0.4,
-                    borderWidth: 0,
-                    pointRadius: 0,
-                    borderColor: "#3A416F",
-                    borderWidth: 3,
-                    backgroundColor: gradientStroke2,
-                    fill: true,
-                    data: [30, 90, 40, 140, 290, 290, 340, 230, 400],
-                    maxBarThickness: 6
-                }, ],
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: false,
-                    }
-                },
-                interaction: {
-                    intersect: false,
-                    mode: 'index',
-                },
-                scales: {
-                    y: {
-                        grid: {
-                            drawBorder: false,
-                            display: true,
-                            drawOnChartArea: true,
-                            drawTicks: false,
-                            borderDash: [5, 5]
-                        },
-                        ticks: {
-                            display: true,
-                            padding: 10,
-                            color: '#b2b9bf',
-                            font: {
-                                size: 11,
-                                family: "Open Sans",
-                                style: 'normal',
-                                lineHeight: 2
-                            },
-                        }
-                    },
-                    x: {
-                        grid: {
-                            drawBorder: false,
-                            display: false,
-                            drawOnChartArea: false,
-                            drawTicks: false,
-                            borderDash: [5, 5]
-                        },
-                        ticks: {
-                            display: true,
-                            color: '#b2b9bf',
-                            padding: 20,
-                            font: {
-                                size: 11,
-                                family: "Open Sans",
-                                style: 'normal',
-                                lineHeight: 2
-                            },
-                        }
-                    },
-                },
-            },
         });
     </script>
     <script>
