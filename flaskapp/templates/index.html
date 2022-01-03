@@ -158,6 +158,19 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-12">
+                    <div class="card h-100 p-3" id='resultsCard'>
+                        <div class="overflow-hidden position-relative border-radius-lg bg-cover h-100" style="background-image: url('../static/img/ivancik.jpg');">
+                            <span class="mask bg-gradient-dark"></span>
+                            <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
+                                <h5 class="text-white font-weight-bolder mb-4 pt-2">Results</h5>
+                                <div id='hfProb'></div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
         </div>
@@ -173,6 +186,8 @@
         $(document).ready(function(e) {
 
             $('#makePred').click(function() {
+
+                $('#hfProb').empty();
 
                 var sex = $('#sex').val();
                 var restingECG = $('#restingECG').val();
@@ -205,7 +220,7 @@
                     data: inputData,
                     type: 'post',
                     success: function(response) {
-                        console.log('gang');
+                        $('#hfProb').append(`<p style="color:white;">Patient has a ${response['pred']} probability of heart failure</p>`)
                     }
                 })
             });
