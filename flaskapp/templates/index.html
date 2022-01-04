@@ -165,6 +165,7 @@
                             <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
                                 <h5 class="text-white font-weight-bolder mb-4 pt-2">Results</h5>
                                 <div id='hfProb'></div>
+                                <div id='hfPlot'></div>
                                 </a>
                             </div>
                         </div>
@@ -188,6 +189,7 @@
             $('#makePred').click(function() {
 
                 $('#hfProb').empty();
+                $('#hfPred').empty();
 
                 var sex = $('#sex').val();
                 var restingECG = $('#restingECG').val();
@@ -221,6 +223,13 @@
                     type: 'post',
                     success: function(response) {
                         $('#hfProb').append(`<p style="color:white;">Patient has a ${response['pred']} probability of heart failure</p>`)
+
+                        var figure = JSON.parse(response['plot']);
+                        Plotly.newPlot('hfPlot', figure.data, figure.layout, {
+                            displayModeBar: false,
+                            responsive: true
+                        });
+
                     }
                 })
             });
@@ -241,6 +250,8 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../static/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
+    <!-- Plotly cdn -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </body>
 
 </html>
