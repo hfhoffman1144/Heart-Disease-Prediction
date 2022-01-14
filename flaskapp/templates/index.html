@@ -40,7 +40,6 @@
     <!-- Jquery CDN -->
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
-
 </head>
 
 <body class="g-sidenav-show  bg-gray-100">
@@ -149,7 +148,6 @@
                                     <div class="col-lg-4">
                                         <p style="color: white;">Calculate Heart Failure Probability</p>
                                         <button id='makePred' class="btn btn-outline-primary btn-md mb-0" style="width:100%; background-color: white;">Run model</button>
-
                                     </div>
                                 </div>
 
@@ -183,60 +181,7 @@
     <script src="../static/js/plugins/perfect-scrollbar.min.js"></script>
     <script src="../static/js/plugins/smooth-scrollbar.min.js"></script>
     <script src="../static/js/plugins/chartjs.min.js"></script>
-    <script>
-        $(document).ready(function(e) {
-
-            $('#makePred').click(function() {
-
-                $('#hfProb').empty();
-                $('#hfPred').empty();
-
-                var sex = $('#sex').val();
-                var restingECG = $('#restingECG').val();
-                var cpt = $('#chestPainType').val();
-                var exerciseAngina = $('#exerciseAngina').val();
-                var sts = $('#stSlope').val();
-                var age = $('#age').val();
-                var bp = $('#restingBP').val();
-                var chol = $('#cholesterol').val();
-                var bs = $('#fastingBS').val();
-                var maxHR = $('#maxHR').val();
-                var oldpeak = $('#oldpeak').val();
-
-                var inputData = {
-                    'sex': sex,
-                    'restingECG': restingECG,
-                    'cpt': cpt,
-                    'exerciseAngina': exerciseAngina,
-                    'sts': sts,
-                    'age': age,
-                    'bp': bp,
-                    'chol': chol,
-                    'bs': bs,
-                    'maxHR': maxHR,
-                    'oldpeak': oldpeak
-                };
-
-                $.ajax({
-                    url: 'main/api/make_prediction',
-                    data: inputData,
-                    type: 'post',
-                    success: function(response) {
-                        $('#hfProb').append(`<p style="color:white;">Patient has a ${response['pred']} probability of heart failure</p>`)
-
-                        var figure = JSON.parse(response['plot']);
-                        Plotly.newPlot('hfPlot', figure.data, figure.layout, {
-                            displayModeBar: false,
-                            responsive: true
-                        });
-
-                    }
-                })
-            });
-
-
-        });
-    </script>
+    <script src="../static/js/api.js"></script>
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
         if (win && document.querySelector('#sidenav-scrollbar')) {
