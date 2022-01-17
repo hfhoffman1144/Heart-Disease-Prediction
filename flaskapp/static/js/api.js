@@ -36,6 +36,7 @@ $(document).ready(function(e) {
             data: inputData,
             type: 'post',
             success: function(response) {
+                console.log(response);
                 $('#hfProb').append(`<p style="color:white;">Patient has a ${response['pred']} probability of heart failure</p>`)
 
                 var figure = JSON.parse(response['plot']);
@@ -43,10 +44,8 @@ $(document).ready(function(e) {
                     displayModeBar: false,
                     responsive: true
                 });
-
             }
         })
     });
-
 
 });
